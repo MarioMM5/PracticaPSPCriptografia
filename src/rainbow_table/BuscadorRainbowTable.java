@@ -3,6 +3,7 @@ package rainbow_table;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class BuscadorRainbowTable {
     // Función para buscar el hash en la Rainbow Table
@@ -24,7 +25,9 @@ public class BuscadorRainbowTable {
     }
 
     public static void main(String[] args) {
-        String hashAEncontrar = "a91b2fcd5820bffcc1028b32187fdf232d8c093dcf3ab3789b42e623d9dbd81f"; // Hash de prueba
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el hash a encontrar:");
+        String hashAEncontrar = sc.nextLine(); // Hash de prueba
         String ficheroRainbow = "rainbow_table.txt"; // Archivo donde está la tabla arcoíris
 
         String pass = buscarPass(hashAEncontrar, ficheroRainbow);

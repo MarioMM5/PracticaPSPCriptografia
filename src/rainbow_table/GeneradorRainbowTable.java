@@ -40,7 +40,7 @@ public class GeneradorRainbowTable {
     }
 
     public static void main(String[] args) {
-        String inputFile = "passwords.txt"; // Lista de contraseñas posibles
+        String inputFile = "src/resources/passwords.txt"; // Lista de contraseñas posibles
         String outputFile = "rainbow_table.txt"; // Archivo de salida
         generateRainbowTable(inputFile, outputFile);
     }
