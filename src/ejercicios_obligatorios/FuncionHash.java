@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 public class FuncionHash {
 
     public static void main(String[] args) {
-        String text = "Hello, world!";
+        String text = "Hasta luego lucas!!";
         String hash = hashText(text);
         System.out.println("SHA-256 Hash: " + hash);
     }
@@ -15,11 +15,11 @@ public class FuncionHash {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = messageDigest.digest(input.getBytes());
-            StringBuilder hexString = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
             for (byte b : hashBytes) {
-                hexString.append(String.format("%02x", b));
+                stringBuilder.append(String.format("%02x", b));
             }
-            return hexString.toString();
+            return stringBuilder.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;

@@ -6,15 +6,15 @@ import java.io.IOException;
 
 public class BuscadorRainbowTable {
     // Función para buscar el hash en la Rainbow Table
-    public static String findPassword(String hash, String rainbowTableFile) {
+    public static String buscarPass(String hash, String rainbowTableFile) {
         try (BufferedReader reader = new BufferedReader(new FileReader(rainbowTableFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(" ");
-                String password = parts[0];
-                String storedHash = parts[1];
-                if (storedHash.equals(hash)) {
-                    return password;
+                String[] partes = line.split(" ");
+                String pass = partes[0];
+                String hashGuardado = partes[1];
+                if (hashGuardado.equals(hash)) {
+                    return pass;
                 }
             }
         } catch (IOException e) {
@@ -24,12 +24,12 @@ public class BuscadorRainbowTable {
     }
 
     public static void main(String[] args) {
-        String hashToFind = "a91b2fcd5820bffcc1028b32187fdf232d8c093dcf3ab3789b42e623d9dbd81f"; // Hash de prueba
-        String rainbowTableFile = "rainbow_table.txt"; // Archivo donde está la tabla arcoíris
+        String hashAEncontrar = "a91b2fcd5820bffcc1028b32187fdf232d8c093dcf3ab3789b42e623d9dbd81f"; // Hash de prueba
+        String ficheroRainbow = "rainbow_table.txt"; // Archivo donde está la tabla arcoíris
 
-        String password = findPassword(hashToFind, rainbowTableFile);
-        if (password != null) {
-            System.out.println("El hash corresponde a la contraseña: " + password);
+        String pass = buscarPass(hashAEncontrar, ficheroRainbow);
+        if (pass != null) {
+            System.out.println("El hash corresponde a la contraseña: " + pass);
         } else {
             System.out.println("Hash no encontrado en la Rainbow Table.");
         }

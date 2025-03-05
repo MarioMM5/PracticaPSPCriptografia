@@ -13,11 +13,11 @@ public class GeneradorRainbowTable {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = messageDigest.digest(input.getBytes());
-            StringBuilder hexString = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
             for (byte b : hashBytes) {
-                hexString.append(String.format("%02x", b));
+                stringBuilder.append(String.format("%02x", b));
             }
-            return hexString.toString();
+            return stringBuilder.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
@@ -30,8 +30,8 @@ public class GeneradorRainbowTable {
              FileWriter writer = new FileWriter(outputFile)) {
             String password;
             while ((password = reader.readLine()) != null) {
-                String hashedPassword = hashText(password);
-                writer.write(password + " " + hashedPassword + "\n");
+                String hashPass = hashText(password);
+                writer.write(password + " " + hashPass + "\n");
             }
             System.out.println("Rainbow Table generada exitosamente.");
         } catch (IOException e) {
