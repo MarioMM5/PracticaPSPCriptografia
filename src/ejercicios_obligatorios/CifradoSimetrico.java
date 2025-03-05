@@ -10,6 +10,7 @@ public class CifradoSimetrico {
     public static void main(String[] args) {
         try {
             Scanner sc = new Scanner(System.in);
+            System.out.println("Introduce un mensaje para encriptarlo");
             String texto = sc.nextLine();
             String secretKey = "1234567890123456"; // 16 bytes clave para AES-128
             String textoEncriptado = encriptar(texto, secretKey);
